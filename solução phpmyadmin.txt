@@ -1,0 +1,98 @@
+não funcionamento do phpmyadmin issabel
+corrija o mirror e depois 
+
+yum install phpmyadmin -y
+
+
+depois excluir todo asquivo do:
+
+sudo vi /etc/httpd/conf.d/phpMyAdmin.conf
+
+
+
+e substituir por esse;;;;;;;;;;;
+------------------------------
+
+
+# Configuração para o phpMyAdmin
+
+Alias /phpMyAdmin /usr/share/phpMyAdmin
+Alias /phpmyadmin /usr/share/phpMyAdmin
+
+<Directory /usr/share/phpMyAdmin>
+   AddDefaultCharset UTF-8
+
+   <IfModule mod_authz_core.c>
+     # Apache 2.4
+     <RequireAny>
+       Require all granted
+     </RequireAny>
+   </IfModule>
+   <IfModule !mod_authz_core.c>
+     # Apache 2.2
+     Order Deny,Allow
+     Deny from None
+     Allow from All
+   </IfModule>
+</Directory>
+
+<Directory /usr/share/phpMyAdmin/setup>
+   <IfModule mod_authz_core.c>
+     # Apache 2.4
+     <RequireAny>
+       Require all granted
+     </RequireAny>
+   </IfModule>
+   <IfModule !mod_authz_core.c>
+     # Apache 2.2
+     Order Deny,Allow
+     Deny from None
+     Allow from All
+   </IfModule>
+</Directory>
+
+<Directory /usr/share/phpMyAdmin/libraries>
+   <IfModule mod_authz_core.c>
+     # Apache 2.4
+     Require all denied
+   </IfModule>
+   <IfModule !mod_authz_core.c>
+     # Apache 2.2
+     Order Deny,Allow
+     Deny from All
+     Allow from None
+   </IfModule>
+</Directory>
+
+<Directory /usr/share/phpMyAdmin/setup/lib>
+   <IfModule mod_authz_core.c>
+     # Apache 2.4
+     Require all denied
+   </IfModule>
+   <IfModule !mod_authz_core.c>
+     # Apache 2.2
+     Order Deny,Allow
+     Deny from All
+     Allow from None
+   </IfModule>
+</Directory>
+
+<Directory /usr/share/phpMyAdmin/setup/frames>
+   <IfModule mod_authz_core.c>
+     # Apache 2.4
+     Require all denied
+   </IfModule>
+   <IfModule !mod_authz_core.c>
+     # Apache 2.2
+     Order Deny,Allow
+     Deny from All
+     Allow from None
+   </IfModule>
+</Directory>
+
+# Desabilita o mod_security para diretórios do phpMyAdmin
+<IfModule mod_security.c>
+    <Directory /usr/share/phpMyAdmin>
+        SecRuleInheritance Off
+    </Directory>
+</IfModule>

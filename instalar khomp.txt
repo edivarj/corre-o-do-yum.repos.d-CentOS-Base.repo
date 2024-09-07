@@ -1,0 +1,22 @@
+instalar khomp
+
+
+scp "C:\Users\tork\Desktop\channel_5.1_002_x86-64.sh.gz" root@192.168.3.42:/usr/src/
+
+############### se de bloqueio no cmd#######
+
+ssh-keygen -R 192.168.3.42
+
+#########################
+
+cd /usr/src/
+gunzip channel_5.1_002_x86-64.sh.gz
+
+
+
+
+chmod +x channel_5.1_002_x86-64.sh
+
+
+
+./channel_5.1_002_x86-64.sh
