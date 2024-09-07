@@ -1,7 +1,9 @@
 instalar khomp
 
 
-scp "C:\Users\tork\Desktop\channel_5.1_002_x86-64.sh.gz" root@192.168.3.42:/usr/src/
+ no prompt de comando
+
+scp "C:\Users\pc\Desktop\channel_5.1_002_x86-64.sh.gz" root@seu_ip:/usr/src/ caminho de onde o arquivo channel esta em seu pc   e o admin mais o ip junto com local que vai instalar no issabel.
 
 ############### se de bloqueio no cmd#######
 
