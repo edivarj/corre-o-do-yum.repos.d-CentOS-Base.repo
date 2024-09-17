@@ -1,0 +1,12 @@
+ENVIO DE SMS VIA DIALPLAN
+
+
+
+NoOp(Iniciando o envio de SMS para a opção 2)
+Set(NUMBER=${CALLERID(num)})
+KSendSMS(B00C00|${NUMBER}|Você escolheu a Opção 2. Agradecemos o contato!)
+
+
+NoOp(Iniciando o envio de SMS para a opção 3)
+Set(NUMBER=${CALLERID(num)})
+KSendSMS(B00C00|${NUMBER}|Opção 3 selecionada. Vamos entrar em contato em breve!)
